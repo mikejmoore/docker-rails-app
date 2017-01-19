@@ -1,0 +1,49 @@
+FROM ruby:2.1.5
+
+
+ENV GIT_REPO_ADDRESS <<GIT_REPO_ADDRESS>>
+ENV DOCKER_IMAGE true
+ENV APP_HOME /application
+ENV RAILS_ENV production
+
+
+RUN apt-get update && apt-get install -y --force-yes \
+  autoconf \
+  build-essential \
+  cmake \
+  pkg-config \
+  libssl-dev \
+  libyaml-dev \
+  libreadline6-dev \
+  zlib1g-dev \
+  libffi-dev \
+  libncurses5-dev \
+  libgdbm3 \
+  libgdbm-dev \
+  libsqlite3-dev \
+  libmysqlclient-dev \
+  libv8-dev \
+#  telnet \
+  mysql-client \
+  git \
+  netcat \
+  wget && \
+  gem install --no-document bundler && \
+  echo "Set up ssh credentials for gitlab, so we can clone olex at docker image run time." && \
+  mkdir /root/.ssh
+
+
+# COPY files/rails_application.tar.gz /application
+COPY files/ssh/* /root/.ssh/
+
+ RUN  echo "RUNNING CONTAINER ENTRYPOINT" && \
+      rm -rf "$APP_HOME" && \
+      git clone "$GIT_REPO_ADDRESS" "$APP_HOME" &&\
+      cd "$APP_HOME" && \
+      bundle install --without test development
+    
+EXPOSE 3000
+
+# COPY entrypoint.sh /entrypoint.sh
+# ENTRYPOINT ["/entrypoint.sh"]
+# CMD ["/application/rails","s"]
