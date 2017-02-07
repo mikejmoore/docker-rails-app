@@ -20,9 +20,23 @@ Or install it yourself as:
 
     $ gem install docker_rails_app
 
-## Usage
 
-TODO: Write usage instructions here
+Add this line to top of Rakefile
+```ruby
+require 'docker_rails_app'
+```
+Install Docker configurations for you rails app:
+```
+$ rake docker:install
+Creating configurations.
+Enter image name of rails app (minimal-rails-app):
+
+Copied standard Dockerfile to: /Users/mikemoore/code/devops/minimal_rails_app/docker
+Copied entry point file to: /Users/mikemoore/code/devops/minimal_rails_app/docker
+````
+
+## Usage
+   
 
 ## Development
 

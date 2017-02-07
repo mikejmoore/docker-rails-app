@@ -1,0 +1,25 @@
+PATH
+  remote: .
+  specs:
+    docker-rails-app (0.3.6)
+      docker-api (~> 1.31)
+
+GEM
+  specs:
+    docker-api (1.33.1)
+      excon (>= 0.38.0)
+      json
+    excon (0.54.0)
+    json (2.0.2)
+    rake (10.4.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (~> 1.9)
+  docker-rails-app!
+  rake (~> 10.0)
+
+BUNDLED WITH
+   1.13.7

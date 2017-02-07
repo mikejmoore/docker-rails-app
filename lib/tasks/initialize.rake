@@ -4,7 +4,7 @@ require_relative "../support/initialize_project"
 
 namespace :docker do 
   
-  desc "Build docker image of this project"
+  desc "Initialize DockerRails"
   task :install => :environment do 
     initializer = InitializeProject.new
     initializer.create_configuration()

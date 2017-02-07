@@ -1,7 +1,3 @@
-#gem build docker_rails_app.gemspec
-#gem inabox ./docker_rails_app-0.1.0.gem -g http://gemserver.openlogic.local:10080
-
-
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
@@ -11,11 +7,13 @@ Gem::Specification.new do |spec|
   spec.name          = "docker-rails-app"
   spec.version       = DockerRailsApp::VERSION
   spec.authors       = ["Mike Moore"]
-  spec.email         = ["mike.moore@roguewave.com"]
+  spec.email         = ["m.moore.denver@gmail.com"]
 
   spec.summary       = "Puts your rails app into a Docker image"
   spec.description   = "Puts your rails app into a Docker image"
   spec.license       = "MIT"
+
+  spec.homepage      = 'https://github.com/mikejmoore/docker-rails-app'
 
   spec.files = Dir.glob("{bin,lib}/**/*")
   spec.files <<    "lib/docker_rails_app.rb"  
